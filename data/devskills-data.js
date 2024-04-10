@@ -1,4 +1,4 @@
-const devSkills = [
+const devskills = [
   {skill: 'Front-end', proficiency: true, _id: 2387 },
   {skill: 'Back-end', proficiency: true, _id: 2209},
   {skill: 'UI/UX', proficiency: true, _id: 9852},
@@ -7,5 +7,5 @@ const devSkills = [
 
 
 export {
-  devSkills
+  devskills
 }

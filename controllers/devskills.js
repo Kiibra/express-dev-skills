@@ -14,6 +14,12 @@ function index(req, res) {
   })
 }
 
+function newDevSkill(req, res) {
+  res.render('devskills/new')
+}
+
+
 export {
   index,
+  newDevSkill as new,
 }

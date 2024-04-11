@@ -11,4 +11,11 @@ router.get('/', devskillsCtrl.index)
 // GET localhost:3000/devskills/new
 router.get('/new', devskillsCtrl.new)
 
+// GET localhost:3000/devskills/:devskillId
+router.get('/:devskillId', devskillsCtrl.show)
+
+// GET localhost:3000/devskills
+router.post('/', devskillsCtrl.create)
+
+
 export { router }

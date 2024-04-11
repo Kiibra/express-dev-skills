@@ -1,13 +1,9 @@
 import { Router } from 'express'
-import { devskills } from '../data/devskills-data'
+import * as devskillsCtrl from '../controllers/devskills.js'
 
 const router = Router()
 
 // GET localhost:3000/devskills
-app.get('/', function(req, res) {
-  res.render('devskills/index', {
-    devskills: devskills
-  })
-})
+router.get('/', devskillsCtrl.index)
 
 export { router }

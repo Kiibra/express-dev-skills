@@ -9,10 +9,12 @@
   <h1>Dev Skills</h1>
   <ul>
     <% devskills.forEach(devskill => { %>
-      <%= devskill.text %>
+      <li>
+      <%= devskill.skill %>
       - 
-      <%= devskill.done ? 'done' : 'not done' %>
-    <% }) %>
+      <%= devskill.proficiency ? 'proficient' : 'not proficient' %>
+      <% }) %>
+      </li>
   </ul>
 </body>
 </html>

@@ -24,18 +24,18 @@ function show(req, res){
     res.render('devskills/show',  {
     devskill: devskill
     })
-    .catch(error => {
+  })
+  .catch(error => {
       console.log(error)
       res.redirect('/devskills')
     })
-  })
 }
 
 function create(req, res){
   console.log(req.body)
   // set done/ proficiency property to false
   req.body.profiency = false
-  
+
   Devskill.create(req.body)
   .then(devskill => {
     res.redirect('devskills')

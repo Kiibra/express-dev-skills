@@ -10,8 +10,7 @@
   <ul>
     <% devskills.forEach(devskill => { %>
       <li>
-      <%= devskill.text %>
-      - 
+      <a href="/devskills/<%= devskill._id %>"><%= devskill.text %></a>
       <%= devskill.proficiency ? 'proficient' : 'not proficient' %>
       <% }) %>
       </li>

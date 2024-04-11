@@ -7,6 +7,8 @@ const devskillSchema = new Schema({
   done: Boolean
 })
 
+const Devskill = mongoose.model('Devskill', devskillSchema)
+
 export {
   Devskill
 }

@@ -6,7 +6,7 @@ function index(req, res) {
   .then(devskills => {
     res.render('devskills/index', {
       devskills: devskills,
-      time: req.time
+      date: req.date
     })
   })
   .catch(error => {

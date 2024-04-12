@@ -5,6 +5,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import createError from 'http-errors'
 import logger from 'morgan'
+import methodOverride from 'method-override'
 
 import './config/database.js'
 
@@ -19,9 +20,10 @@ const app = express()
 app.set('view engine', 'ejs')
 
 // basic middleware ********
+
 app.use(function(req, res, next) {
   // Add a time property to the req object
-  req.time = new Date().toLocaleTimeString()
+  req.date = new Date().toLocaleDateString()
   next()
 })
 
@@ -33,6 +35,7 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+app.use(methodOverride('_method'))
 
 
 // mount imported routes **********

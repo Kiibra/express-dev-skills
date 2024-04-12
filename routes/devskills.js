@@ -18,6 +18,6 @@ router.get('/:devskillId', devskillsCtrl.show)
 router.post('/', devskillsCtrl.create)
 
 // GET localhost:3000/devskills/delete
-
+router.delete('/:devskillId', devskillsCtrl.delete)
 
 export { router }

@@ -1,4 +1,4 @@
-// import npm packages
+// import npm packages **********
 import "dotenv/config.js"
 import express from 'express'
 import path from 'path'
@@ -8,17 +8,23 @@ import logger from 'morgan'
 
 import './config/database.js'
 
-// import routers
+// import routers ********
 import { router as indexRouter } from './routes/index.js'
 import { router as devskillsRouter } from './routes/devskills.js'
 
-// create the express app
+// create the express app ********
 const app = express()
 
 // view engine setup
 app.set('view engine', 'ejs')
 
-// basic middleware
+// basic middleware ********
+app.use(function(req, res, next) {
+  // Add a time property to the req object
+  req.time = new Date().toLocaleTimeString()
+  next()
+})
+
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -28,16 +34,17 @@ app.use(
   )
 )
 
-// mount imported routes
+
+// mount imported routes **********
 app.use('/', indexRouter)
 app.use('/devskills', devskillsRouter)
 
-// catch 404 and forward to error handler
+// catch 404 and forward to error handler **********
 app.use(function (req, res, next) {
   next(createError(404))
 })
 
-// error handler
+// error handler **********
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message

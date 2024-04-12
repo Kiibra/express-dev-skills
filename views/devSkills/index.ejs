@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>Express Dev Skills</title>
 </head>
 <body>
@@ -10,10 +11,18 @@
   <ul>
     <% devskills.forEach(devskill => { %>
       <li>
-      <a href="/devskills/<%= devskill._id %>"><%= devskill.text %></a>
-      <%= devskill.proficiency ? 'proficient' : 'not proficient' %>
-      <% }) %>
+        <form
+          action="/devskills/<%= devskill._id%>?_method=DELETE"
+          method="POST"
+          class="delete-form"
+        >
+          <button type="submit">X</button>
+        </form>
+        <a href="/devskills/<%= devskill._id %>"><%= devskill.text %></a>
+        - 
+        <%= devskill.proficiency ? 'proficient' : 'not proficient' %>
       </li>
+      <% }) %>
   </ul>
   <a href="/devskills/new">Add A Skill</a>
 </body>

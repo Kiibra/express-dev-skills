@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const devskillSchema = new Schema({
   text: String,
-  proficiency: Boolean
+  done: Boolean,
 })
 
 const Devskill = mongoose.model('Devskill', devskillSchema)

@@ -33,13 +33,13 @@ function show(req, res){
 }
 
 function create(req, res){
-  console.log(req.body)
+  // console.log(req.body)
   // set done/ proficiency property to false
-  req.body.profiency = false
+  req.body.done = false
 
   Devskill.create(req.body)
   .then(devskill => {
-    res.redirect('devskills')
+    res.redirect('/devskills')
   })
   .catch(error => {
     console.log(error)
@@ -58,10 +58,41 @@ function deleteDevskill(req, res){
   })
 }
 
+function edit(req, res) {
+  // find the devskill and pass it to render
+  Devskill.findById(req.params.devskillId)
+  .then(devskill => {
+    // render a vieew  with a form (edit.ejs)
+    res.render('devskills/edit', {
+      devskill: devskill
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/devskills')
+  })
+  
+}
+
+function update(req, res){
+  // handle checkbox logic
+  req.body.profiency = !!req.body.profiency
+  Devskill.findByIdAndUpdate(req.params.devskillId, req.body, {new: true})
+  .then(devskill => {
+    res.redirect(`/devskills/${req.params.devskillId}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/devskills')
+  })
+}
+
 export {
   index,
   newDevSkill as new,
   show,
   create,
   deleteDevskill as delete,
+  edit,
+  update,
 }

@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>Document</title>
 </head>
-<body>
-  <h1>New Skills</h1>
+<body class="new-skill">
+  <h1>New Skill</h1>
   <form action="/devskills" method="POST" autocomplete="off">
     <input type="text" name="text">
-    <!-- <input type="text" name="proficiency"> -->
+    <input type="checkbox" name="proficiency">
     <button type="submit">Save Skill</button>
   </form>
 </body>

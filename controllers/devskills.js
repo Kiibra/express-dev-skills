@@ -76,7 +76,7 @@ function edit(req, res) {
 
 function update(req, res){
   // handle checkbox logic
-  req.body.profiency = !!req.body.profiency
+  req.body.done = !!req.body.done
   Devskill.findByIdAndUpdate(req.params.devskillId, req.body, {new: true})
   .then(devskill => {
     res.redirect(`/devskills/${req.params.devskillId}`)

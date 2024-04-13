@@ -21,11 +21,11 @@
         <a href="/devskills/<%= devskill._id%>/edit"><button class="edit-button">✏️</button></a>
         <a href="/devskills/<%= devskill._id %>"><%= devskill.text %></a>
         - 
-        <%= devskill.done ? 'done' : 'not done' %>
+        <%= devskill.done ? 'done' : 'not done'%>
       </li>
       <% }) %>
   </ul>
-  <a href="/devskills/new">Add A Skill</a>
-  <a href="/">Back</a>
+  <a href="/">Back</a><br>
+  <a href="/devskills/new">Add Skill</a> 
 </body>
 </html>

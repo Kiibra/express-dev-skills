@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import * as devskillsCtrl from '../controllers/devskills.js'
 import { devskills } from '../data/devskills-data.js'
-// import { devskills } from '../data/devskills-data.js'
+
 
 const router = Router()
 
